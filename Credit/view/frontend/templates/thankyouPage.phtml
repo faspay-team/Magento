@@ -1,0 +1,31 @@
+<?php
+    if(isset($_GET['order_id'])){
+        $noslash = explode("/",$_GET['order_id']);
+        $get = file_get_contents('php://input');
+    ?>
+
+<center>
+    
+    <div>
+        <img src='<?php echo $this->getViewFileUrl('Faspay_Credit::images/asset/thank.jpg'); ?>' alt="Demo">
+        <br>
+        <br>
+        <br>
+    </div>
+
+    <h3><?php echo $this->check($noslash[0],$get); ?></h3>
+
+    <meta http-equiv="refresh" content="60;url= <?php echo $block->getUrl('/') ?>" />
+
+
+</center>
+
+
+<?php }else{ ?>
+        NO ORDER LISTED
+<?php } ?>
+
+
+
+
+

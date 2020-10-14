@@ -1,0 +1,42 @@
+<br>
+
+<button class="accordion" >Pembayaran Via Aplikasi</button>
+<div class="panel">
+  <p>
+    <img src='<?php echo $this->getViewFileUrl('Faspay_Debit::images/asset/guide/bri_mocash_1.jpg'); ?>' alt="How">
+  </p>
+</div>
+
+<button class="accordion" >Pembayaran Via SMS</button>
+<div class="panel">
+    <center>
+        <p>
+            Lakukan pembayaran dengan cara mengirim SMS ke 9123, ketik: BAYAR MD (spasi) STORE_ID
+            (spasi) AMOUNT (spasi) ORDER_ID (spasi) PIN atau BAYAR MD 1902291 (spasi) 0 (spasi)
+            <?php echo $faspayOrder->getTrxId() ?> (spasi) (PIN ANDA)
+        </p>
+    </center>
+</div>
+
+
+
+<script >
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+
+
+

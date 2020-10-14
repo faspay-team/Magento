@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <include path="Faspay_Debit::1step/bca_klikpay.xml" />
+    <include path="Faspay_Debit::1step/bca_sakuku.xml" />
+    <include path="Faspay_Debit::1step/bri_epay.xml" />
+    <include path="Faspay_Debit::1step/cimb_clicks.xml" />
+    <include path="Faspay_Debit::1step/danamon_online.xml" />
+    <include path="Faspay_Debit::1step/kredivo.xml" />
+    <include path="Faspay_Debit::1step/mandiri_clickpay.xml" />
+    <include path="Faspay_Debit::1step/mandiri_ecash.xml" />
+    <include path="Faspay_Debit::1step/permata_net.xml" />
+    <include path="Faspay_Debit::1step/t_cash.xml" />
+    <include path="Faspay_Debit::1step/ovo.xml" />
+    <include path="Faspay_Debit::1step/m2u.xml" />
+    <include path="Faspay_Debit::1step/akulaku.xml" />
+    <include path="Faspay_Debit::1step/shopee_app.xml" />
+    <include path="Faspay_Debit::1step/shopee_qr.xml" />
+    <include path="Faspay_Debit::1step/dana.xml" />
+
+</include>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Payssion All rights reserved.
+ */
+-->
+<payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/payment.xsd">
+    <groups>
+        <group id="faspay_credit">
+            <label>Faspay Credit</label>
+        </group>
+    </groups>
+    <methods>
+
+        <method name="mid_1">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_2">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_3">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_4">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_5">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_6">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_7">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_8">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_9">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_10">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_11">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_12">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_13">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_14">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_15">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mid_16">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+
+    </methods>
+</payment>

@@ -1,0 +1,33 @@
+<br>
+
+<button class="accordion" >Pembayaran Melalui Alfamart</button>
+<div class="panel">
+    <ol>
+        <li>Catat dan simpan kode pembayaran Alfamart Anda, yaitu : <?php echo $faspayOrder->getTrxId()?>.</li>
+        <li>Datangi kasir Alfamart terdekat dan beritahukan pada kasir bahwa Anda ingin melakukan pembayaran "<?php echo $data->getMerchantName() ?>".</li>
+        <li>Beritahukan kode pembayaran Alfamart Anda pada kasir dan silahkan lakukan pembayaran Anda senilai <?php echo $order->getBaseCurrencyCode()." ".number_format($order->getTotalDue()) ?>.</li>
+        <li>Simpan struk pembayaran Anda sebagai tanda bukti pembayaran yang sah.</li>
+    </ol>
+</div>
+
+
+<script >
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+
+
+

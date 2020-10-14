@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <include path="Faspay_Credit::payment_type/mid_1.xml" />
+    <include path="Faspay_Credit::payment_type/mid_2.xml" />
+    <include path="Faspay_Credit::payment_type/mid_3.xml" />
+    <include path="Faspay_Credit::payment_type/mid_4.xml" />
+    <include path="Faspay_Credit::payment_type/mid_5.xml" />
+    <include path="Faspay_Credit::payment_type/mid_6.xml" />
+    <include path="Faspay_Credit::payment_type/mid_7.xml" />
+    <include path="Faspay_Credit::payment_type/mid_8.xml" />
+    <include path="Faspay_Credit::payment_type/mid_9.xml" />
+    <include path="Faspay_Credit::payment_type/mid_10.xml" />
+    <include path="Faspay_Credit::payment_type/mid_11.xml" />
+    <include path="Faspay_Credit::payment_type/mid_12.xml" />
+    <include path="Faspay_Credit::payment_type/mid_13.xml" />
+    <include path="Faspay_Credit::payment_type/mid_14.xml" />
+    <include path="Faspay_Credit::payment_type/mid_15.xml" />
+    <include path="Faspay_Credit::payment_type/mid_16.xml" />
+
+</include>

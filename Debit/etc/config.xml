@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <payment>
+            <custompayment>
+                <active>1</active>
+                <title>Faspay Payment</title>
+                <model>Faspay\Debit\Model\Payment\PaymentMethod</model>
+                <order_status>pending</order_status>
+                <instructions>You use Debit method.</instructions>
+                <is_production>0</is_production>
+                <custom_expiry>90 minute</custom_expiry>
+            </custompayment>
+
+            <alfagroup>
+                <active>1</active>
+                <title>Alfagroup Payment</title>
+                <model>Faspay\Debit\Model\Payment\alfagroup</model>
+                <order_status>pending</order_status>
+                <channel>707</channel>
+                <sort_order>1</sort_order>
+            </alfagroup>
+            <bca_va>
+                <active>1</active>
+                <title>BCA VA Payment</title>
+                <model>Faspay\Debit\Model\Payment\bcava</model>
+                <free_text1>Message from Merchant (1)</free_text1>
+                <free_text2>Message from Merchant (2)</free_text2>
+                <order_status>pending</order_status>
+                <channel>702</channel>
+                <sort_order>3</sort_order>
+            </bca_va>
+            <bni_va>
+                <active>1</active>
+                <title>BNI VA Payment</title>
+                <model>Faspay\Debit\Model\Payment\bniva</model>
+                <order_status>pending</order_status>
+                <channel>801</channel>
+                <sort_order>4</sort_order>
+            </bni_va>
+            <bri_mocash>
+                <active>1</active>
+                <title>BRI Mocash Payment</title>
+                <model>Faspay\Debit\Model\Payment\brimocash</model>
+                <order_status>pending</order_status>
+                <channel>400</channel>
+                <sort_order>6</sort_order>
+            </bri_mocash>
+            <bri_va>
+                <active>1</active>
+                <title>BRI VA Payment</title>
+                <model>Faspay\Debit\Model\Payment\briva</model>
+                <order_status>pending</order_status>
+                <channel>800</channel>
+                <sort_order>7</sort_order>
+            </bri_va>
+
+            <danamon_va>
+                <active>1</active>
+                <title>Danamon VA Payment</title>
+                <model>Faspay\Debit\Model\Payment\danamonva</model>
+                <order_status>pending</order_status>
+                <channel>708</channel>
+                <sort_order>10</sort_order>
+            </danamon_va>
+            <indomaret_point>
+                <active>1</active>
+                <title>Indomaret Payment Point</title>
+                <model>Faspay\Debit\Model\Payment\indomaretpoint</model>
+                <order_status>pending</order_status>
+                <channel>706</channel>
+                <sort_order>11</sort_order>
+            </indomaret_point>
+            <mandiri_bill>
+                <active>1</active>
+                <title>Mandiri Bill Payment</title>
+                <model>Faspay\Debit\Model\Payment\mandiribill</model>
+                <order_status>pending</order_status>
+                <channel>703</channel>
+                <sort_order>13</sort_order>
+            </mandiri_bill>
+            <mandiri_va>
+                <active>1</active>
+                <title>Mandiri VA Payment</title>
+                <model>Faspay\Debit\Model\Payment\mandiriva</model>
+                <order_status>pending</order_status>
+                <channel>802</channel>
+                <sort_order>16</sort_order>
+            </mandiri_va>
+            <maybank_va>
+                <active>1</active>
+                <title>Maybank VA Payment</title>
+                <model>Faspay\Debit\Model\Payment\maybankva</model>
+                <order_status>pending</order_status>
+                <channel>408</channel>
+                <sort_order>17</sort_order>
+            </maybank_va>
+            
+            <permata_va>
+                <active>1</active>
+                <title>Permata VA Payment</title>
+                <model>Faspay\Debit\Model\Payment\permatava</model>
+                <order_status>pending</order_status>
+                <channel>402</channel>
+                <sort_order>19</sort_order>
+            </permata_va>
+            <xl_tunai>
+                <active>1</active>
+                <title>XL Tunai Payment</title>
+                <model>Faspay\Debit\Model\Payment\xltunai</model>
+                <order_status>pending</order_status>
+                <channel>303</channel>
+                <sort_order>21</sort_order>
+            </xl_tunai>
+
+            <bca_klikpay>
+                <active>1</active>
+                <title>BCA Klikpay</title>
+                <model>Faspay\Debit\Model\Payment\bcaklikpay</model>
+                <order_status>pending</order_status>
+                <channel>405</channel>
+                <sort_order>2</sort_order>
+                <active_mix>0</active_mix>
+
+                    <active_3>1</active_3>
+                    <mid_3>Your MID here</mid_3>
+                    <min_3>Min Amount Allowed</min_3>
+
+                    <active_6>1</active_6>
+                    <mid_6>Your MID here</mid_6>
+                    <min_6>Min Amount Allowed</min_6>
+
+                    <active_12>1</active_12>
+                    <mid_12>Your MID here</mid_12>
+                    <min_12>Min Amount Allowed</min_12>
+
+                    <active_24>1</active_24>
+                    <mid_24>Your MID here</mid_24>
+                    <min_24>Min Amount Allowed</min_24>
+
+            </bca_klikpay>
+            <bca_sakuku>
+                <active>1</active>
+                <title>BCA Sakuku</title>
+                <model>Faspay\Debit\Model\Payment\bcasakuku</model>
+                <order_status>pending</order_status>
+                <channel>704</channel>
+                <sort_order>2</sort_order>
+            </bca_sakuku>
+            <bri_epay>
+                <active>1</active>
+                <title>BRI ePay</title>
+                <model>Faspay\Debit\Model\Payment\briepay</model>
+                <order_status>pending</order_status>
+                <channel>401</channel>
+                <sort_order>5</sort_order>
+            </bri_epay>
+            <cimb_clicks>
+                <active>1</active>
+                <title>CIMB Clicks</title>
+                <model>Faspay\Debit\Model\Payment\cimbclicks</model>
+                <order_status>pending</order_status>
+                <channel>700</channel>
+                <sort_order>8</sort_order>
+            </cimb_clicks>
+            <danamon_online>
+                <active>1</active>
+                <title>Danamon Online Banking</title>
+                <model>Faspay\Debit\Model\Payment\danamononline</model>
+                <order_status>pending</order_status>
+                <channel>701</channel>
+                <sort_order>9</sort_order>
+            </danamon_online>
+            <kredivo>
+                <active>1</active>
+                <title>Kredivo</title>
+                <model>Faspay\Debit\Model\Payment\kredivo</model>
+                <order_status>pending</order_status>
+                <channel>709</channel>
+                <sort_order>12</sort_order>
+            </kredivo>
+            <mandiri_clickpay>
+                <active>1</active>
+                <title>Mandiri ClickPay</title>
+                <model>Faspay\Debit\Model\Payment\mandiriclickpay</model>
+                <order_status>pending</order_status>
+                <channel>406</channel>
+                <sort_order>14</sort_order>
+            </mandiri_clickpay>
+            <mandiri_ecash>
+                <active>1</active>
+                <title>Mandiri eCash</title>
+                <model>Faspay\Debit\Model\Payment\mandiriecash</model>
+                <order_status>pending</order_status>
+                <channel>305</channel>
+                <sort_order>15</sort_order>
+            </mandiri_ecash>
+            <permata_net>
+                <active>1</active>
+                <title>Permata Net</title>
+                <model>Faspay\Debit\Model\Payment\permatanet</model>
+                <order_status>pending</order_status>
+                <channel>403</channel>
+                <sort_order>18</sort_order>
+            </permata_net>
+            <t_cash>
+                <active>1</active>
+                <title>LinkAja</title>
+                <model>Faspay\Debit\Model\Payment\tcash</model>
+                <order_status>pending</order_status>
+                <channel>302</channel>
+                <sort_order>20</sort_order>
+            </t_cash>
+            <ovo>
+                <active>1</active>
+                <title>OVO</title>
+                <model>Faspay\Debit\Model\Payment\ovo</model>
+                <order_status>pending</order_status>
+                <channel>812</channel>
+                <sort_order>21</sort_order>
+            </ovo>
+            <m2u>
+                <active>1</active>
+                <title>Maybank M2U</title>
+                <model>Faspay\Debit\Model\Payment\m2u</model>
+                <order_status>pending</order_status>
+                <channel>814</channel>
+                <sort_order>22</sort_order>
+            </m2u>
+            <akulaku>
+                <active>1</active>
+                <title>Akulaku</title>
+                <model>Faspay\Debit\Model\Payment\akulaku</model>
+                <order_status>pending</order_status>
+                <channel>807</channel>
+                <sort_order>23</sort_order>
+            </akulaku>
+            <shopee_app>
+                <active>1</active>
+                <title>ShopeePay App</title>
+                <model>Faspay\Debit\Model\Payment\shopeeapp</model>
+                <order_status>pending</order_status>
+                <channel>713</channel>
+                <sort_order>24</sort_order>
+            </shopee_app>
+            <shopee_qr>
+                <active>1</active>
+                <title>ShopeePay QRIS</title>
+                <model>Faspay\Debit\Model\Payment\shopeeqr</model>
+                <order_status>pending</order_status>
+                <channel>711</channel>
+                <sort_order>25</sort_order>
+            </shopee_qr>
+            <dana>
+                <active>1</active>
+                <title>DANA</title>
+                <model>Faspay\Debit\Model\Payment\dana</model>
+                <order_status>pending</order_status>
+                <channel>819</channel>
+                <sort_order>26</sort_order>
+            </dana>
+        </payment>
+    </default>
+</config>

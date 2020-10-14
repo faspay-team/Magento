@@ -1,0 +1,56 @@
+<div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
+    <div class="payment-method-title field choice">
+        <input type="radio"
+               name="payment[method]"
+               class="radio"
+               data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
+        <img data-bind="attr: {src: getPaymentIcon()}"
+             class="payment-icon"/>
+        <label data-bind="attr: {'for': getCode()}" class="label"><span data-bind="text: getTitle()"></span></label>
+    </div>
+
+    <div class="payment-method-content rk1">
+        <div class="payment-method-billing-address">
+            <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="checkout-agreements-block">
+        </div>
+
+        <div class="component-wrapper">
+                <table border="1px" id="tabledatabca">
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Payment Type</th>
+                    </tr>
+                    <tbody>
+                        <!-- ko foreach: getItemName() -->
+                        <tr>
+                            <td data-bind="text: $data"></td>
+                            <td>
+                                <select id="select[]" name="select[]">
+                                    <option value="00">Full Installment</option>
+                                    <option data-bind="visible: $parent.getShown(3,$index())" value="03"> 3 Month</option>
+                                    <option data-bind="visible: $parent.getShown(6,$index())" value="06"> 6 Month</option>
+                                    <option data-bind="visible: $parent.getShown(12,$index())" value="12"> 12 Month</option>
+                                    <option data-bind="visible: $parent.getShown(24,$index())" value="24"> 24 Month</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+        </div>
+
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button class="action primary checkout"
+                        type="submit"
+                        data-bind="click: placeOrder, enable: (getCode() == isChecked())">
+                    <span data-bind="text: 'Place Order & Pay'">Place Order & Pay</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

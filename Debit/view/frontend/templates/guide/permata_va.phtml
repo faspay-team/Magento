@@ -1,0 +1,93 @@
+<br>
+
+<button class="accordion" >Pembayaran Melalui ATM Permata </button>
+<div class="panel">
+    <ol>
+        <li>Masukkan PIN</li>
+        <li>Pilih menu TRANSAKSI LAINNYA</li>
+        <li>Pilih menu PEMBAYARAN</li>
+        <li>Pilih menu PEMBAYARAN LAINNYA</li>
+        <li>Pilih menu VIRTUAL ACCOUNT</li>
+        <li>Masukkan nomor VIRTUAL ACCOUNT yang tertera pada halaman konfirmasi, dan tekan BENAR</li>
+        <li>Pilih rekening yang menjadi sumber dana yang akan didebet, lalu tekan YA untuk konfirmasi transaksi</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran melalui ATM Prima</button>
+<div class="panel">
+    <ol>
+        <li>Masukkan PIN</li>
+        <li>Pilih menu TRANSAKSI LAINNYA</li>
+        <li>Pilih menu KE REK BANK LAIN</li>
+        <li>Masukkan kode sandi Bank Permata (013) kemudian tekan BENAR</li>
+        <li>Masukkan nomor VIRTUAL ACCOUNT yang tertera pada halaman konfirmasi, dan tekan BENAR</li>
+        <li>Masukkan jumlah pembayaran sesuai dengan yang ditagihkan dalam halaman konfirmasi</li>
+        <li>Pilih BENAR untuk menyetujui transaksi tersebut</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran melalui ATM Bersama</button>
+<div class="panel">
+    <ol>
+        <li>Masukkan PIN</li>
+        <li>Pilih menu TRANSAKSI</li>
+        <li>Pilih menu KE REK BANK LAIN</li>
+        <li>Masukkan kode sandi Bank Permata (013) diikuti dengan nomor VIRTUAL ACCOUNT yang tertera pada halaman konfirmasi, dan tekan BENAR</li>
+        <li>Masukkan jumlah pembayaran sesuai dengan yang ditagihkan dalam halaman konfirmasi</li>
+        <li>Pilih BENAR untuk menyetujui transaksi tersebut</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran Melalui Permata Mobile </button>
+<div class="panel">
+    <ol>
+        <li>Buka aplikasi PermataMobile Internet (Android/iPhone)</li>
+        <li>Masukkan User ID & Password</li>
+        <li>Pilih Pembayaran Tagihan</li>
+        <li>Pilih Virtual Account</li>
+        <li>Masukkan 16 digit nomor Virtual Account yang tertera pada halaman konfirmasi</li>
+        <li>Masukkan nominal pembayaran sesuai dengan yang ditagihkan</li>
+        <li>Muncul Konfirmasi pembayarann</li>
+        <li>Masukkan otentikasi transaksi/token</li>
+        <li>Transaksi selesai</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran Melalui Permata Net </button>
+<div class="panel">
+    <ol>
+        <li>Buka website PermataNet: <a href="https://new.permatanet.com">https://new.permatanet.com</a></li>
+        <li>Masukkan User ID & Password</li>
+        <li>Pilih Pembayaran Tagihan</li>
+        <li>Pilih Virtual Account</li>
+        <li>Masukkan 16 digit nomor Virtual Account yang tertera pada halaman konfirmasi</li>
+        <li>Masukkan nominal pembayaran sesuai dengan yang ditagihkan</li>
+        <li>Muncul Konfirmasi pembayarann</li>
+        <li>Masukkan otentikasi transaksi/token</li>
+        <li>Transaksi selesai</li>
+    </ol>
+</div>
+
+
+
+
+<script >
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+
+
+

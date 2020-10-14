@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="bca_klikpay" translate="label" type="text" sortOrder="101" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>BCA klikPay</label>
+
+        <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Enabled</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/bca_klikpay/active</config_path>
+        </field>
+        <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Title</label>
+            <config_path>payment/bca_klikpay/title</config_path>
+        </field>
+        <field id="code" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>KlikPay Code</label>
+            <depends>
+                <field id="active">1</field>
+            </depends>
+            <config_path>payment/bca_klikpay/code</config_path>
+        </field>
+        <field id="key" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Clear Key</label>
+            <depends>
+                <field id="active">1</field>
+            </depends>
+            <config_path>payment/bca_klikpay/key</config_path>
+        </field>
+        <field id="active_mix" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Mix Payment</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/bca_klikpay/active_mix</config_path>
+        </field>
+
+        <group id="installment_3" translate="label" type="text" sortOrder="102" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Installment 3 Month</label>
+            <field id="active_3" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Enabled</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <config_path>payment/bca_klikpay/active_3</config_path>
+            </field>
+            <field id="mid_3" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>MID Cicilan 3 Bulan</label>
+                <config_path>payment/bca_klikpay/mid_3</config_path>
+            </field>
+            <field id="min_3" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Minimum Price</label>
+                <config_path>payment/bca_klikpay/min_3</config_path>
+            </field>
+            <depends>
+                <field id="active_mix">1</field>
+            </depends>
+        </group>
+        <group id="installment_6" translate="label" type="text" sortOrder="102" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Installment 6 Month</label>
+            <field id="active_6" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Enabled</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <config_path>payment/bca_klikpay/active_6</config_path>
+            </field>
+            <field id="mid_6" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>MID Cicilan 6 Bulan</label>
+                <config_path>payment/bca_klikpay/mid_6</config_path>
+            </field>
+            <field id="min_6" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Minimum Price</label>
+                <config_path>payment/bca_klikpay/min_6</config_path>
+            </field>
+            <depends>
+                <field id="active_mix">1</field>
+            </depends>
+        </group>
+        <group id="installment_12" translate="label" type="text" sortOrder="102" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Installment 12 Month</label>
+            <field id="active_12" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Enabled</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <config_path>payment/bca_klikpay/active_12</config_path>
+            </field>
+            <field id="mid_12" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>MID Cicilan 12 Bulan</label>
+                <config_path>payment/bca_klikpay/mid_12</config_path>
+            </field>
+            <field id="min_12" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Minimum Price</label>
+                <config_path>payment/bca_klikpay/min_12</config_path>
+            </field>
+            <depends>
+                <field id="active_mix">1</field>
+            </depends>
+        </group>
+        <group id="installment_24" translate="label" type="text" sortOrder="102" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Installment 24 Month</label>
+            <field id="active_24" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Enabled</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <config_path>payment/bca_klikpay/active_24</config_path>
+            </field>
+            <field id="mid_24" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>MID Cicilan 24 Bulan</label>
+                <config_path>payment/bca_klikpay/mid_24</config_path>
+            </field>
+            <field id="min_24" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Minimum Price</label>
+                <config_path>payment/bca_klikpay/min_24</config_path>
+            </field>
+            <depends>
+                <field id="active_mix">1</field>
+            </depends>
+        </group>
+    </group>
+</include>

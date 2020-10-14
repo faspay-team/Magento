@@ -1,0 +1,24 @@
+<?php
+    $passer = $this->getData();
+    $faspayOrder = $passer['faspay_order'];
+    $data = $passer['helper'];
+    $order = $passer['order'];
+?>
+
+
+
+<center>
+    <div>
+        <img src="<?php echo $passer['imageUrl'] ?>" alt="Logo" style="margin-bottom:30px;">
+        <h1>Your Payment channel <?php echo $passer['bank_name']; ?> </h1>
+    </div>
+
+    <h1>Your Payment VA <?php echo $passer['trx_id']; ?></h1>
+    <h1>Your Total Bill <?php echo $passer['currency']."  ".$passer['total'];?></h1>
+    <br>
+</center>
+
+
+<div id="container">
+    <?php include ($block->getTemplateFile('Faspay_Debit::guide/'.$passer['bank_code'].'.phtml')) ?>
+</div>

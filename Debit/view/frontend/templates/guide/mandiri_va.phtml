@@ -1,0 +1,95 @@
+<br>
+
+<button class="accordion" >Tata Cara Membayar Melalui ATM </button>
+<div class="panel">
+    <ol>
+        <li>Catat kode pembayaran yang anda dapat</li>
+        <li>Gunakan ATM Mandiri untuk menyelesaikan pembayaran</li>
+        <li>Masukkan PIN anda</li>
+        <li>Pilih 'Bayar/Beli'</li>
+        <li>Cari pilihan MULTI PAYMENT</li>
+        <li>Masukkan Kode Perusahaan <b><?php echo $data->getMerchantId() ?></b></li>
+        <li>Masukkan Kode Pelanggan <b><?php echo $faspayOrder->getTrxId() ?></b></li>
+        <li>Masukkan Jumlah Pembayaran sesuai dengan Jumlah Tagihan anda kemudian tekan 'Benar'</li>
+        <li>Pilih Tagihan Anda jika sudah sesuai tekan YA</li>
+        <li>Konfirmasikan tagihan anda apakah sudah sesuai lalu tekan YA</li>
+        <li>Harap Simpan Struk Transaksi yang anda dapatkan</li>
+    </ol>
+</div>
+
+<button class="accordion" >Tata Cara Membayar Melalui Internet Banking Mandiri </button>
+<div class="panel">
+    <ol>
+        <li>Pada Halaman Utama pilih menu BAYAR</li>
+        <li>Pilih submenu MULTI PAYMENT</li>
+        <li>Cari Penyedia Jasa 'FASPAY'</li>
+        <li>Masukkan Kode Pelanggan <b><?php echo $faspayOrder->getTrxId() ?></b></li>
+        <li>Masukkan Jumlah Pembayaran sesuai dengan Jumlah Tagihan anda</li>
+        <li>Pilih LANJUTKAN</li>
+        <li>Pilih Tagihan Anda jika sudah sesuai tekan LANJUTKAN</li>
+        <li>Transaksi selesai, jika perlu CETAK hasil transaksi anda</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran melalui ATM Prima</button>
+<div class="panel">
+    <ol>
+        <li>Masukkan PIN</li>
+        <li>Pilih menu TRANSAKSI LAINNYA</li>
+        <li>Pilih menu KE REK BANK LAIN</li>
+        <li>Masukkan kode sandi Bank Mandiri (008) kemudian tekan BENAR</li>
+        <li>Masukkan nomor VIRTUAL ACCOUNT yang tertera pada halaman konfirmasi, dan tekan BENAR</li>
+        <li>Masukkan jumlah pembayaran sesuai dengan yang ditagihkan dalam halaman konfirmasi</li>
+        <li>Pilih BENAR untuk menyetujui transaksi tersebut</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran melalui ATM Bersama</button>
+<div class="panel">
+    <ol>
+        <li>Masukkan PIN</li>
+        <li>Pilih menu TRANSAKSI</li>
+        <li>Pilih menu KE REK BANK LAIN</li>
+        <li>Masukkan kode sandi Bank Mandiri (008) diikuti dengan nomor VIRTUAL ACCOUNT yang tertera pada halaman konfirmasi, dan tekan BENAR</li>
+        <li>Masukkan jumlah pembayaran sesuai dengan yang ditagihkan dalam halaman konfirmasi</li>
+        <li>Pilih BENAR untuk menyetujui transaksi tersebut</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran Mandiri Virtual Account dengan Mandiri Online </button>
+<div class="panel">
+    <ol>
+        <li>Login Mandiri Online dengan memasukkan username dan password</li>
+        <li>Pilih menu PEMBAYARAN</li>
+        <li>Pilih menu MULTI PAYMENT </li>
+        <li>Cari Penyedia Jasa 'FASPAY'</li>
+        <li>Masukkan Nomor Virtual Account <b><?php echo $faspayOrder->getTrxId() ?></b> dan nominal yang akan dibayarkan, lalu pilih Lanjut</li>
+        <li>Setelah muncul tagihan, pilih Konfirmasi</li>
+        <li>Masukkan PIN/ challange code token</li>
+        <li>Transaksi selesai, simpan bukti bayar anda</li>
+    </ol>
+</div>
+
+
+
+
+<script >
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+
+
+

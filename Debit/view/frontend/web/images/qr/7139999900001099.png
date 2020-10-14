@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+
+
+<head>
+
+	<script>
+	// QOS start time must be as early as possible.
+	var QOS_PAGE_START_MS = Date.now ? Date.now() : +new Date();
+	</script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="google-site-verification" content="1Qh3vOiXB3qeXdLNFz3xnaBvEtDEWy54WGrZcgETHFQ" />
+	
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+	
+	<meta name='format-detection' content='telephone=no'>
+	
+	
+	
+
+	
+		
+			<meta name="apple-mobile-web-app-capable" content="yes">
+			<meta name="apple-mobile-web-app-status-bar-style" content="white">
+			<meta name="apple-mobile-web-app-title" content="">
+			<link rel="apple-touch-icon" href="https://deo.shopeemobile.com/shopee/shopee-mall-uat/images/logo-152x152.png">
+		
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	
+<meta name="robots" content="noindex">
+
+
+	<link href="/static/css/common_cdn.css?bcfec0088645" rel="stylesheet">
+	<link href="/static/css/icons_cdn.css?d67ee2a6c07e" rel="stylesheet">
+	
+	<link href="/static/css/fonts_cdn.css?0194cc8a18b7" rel="stylesheet">
+	
+	
+	<link rel="stylesheet" href="/static/css/common/web_popup_cdn.css?ff9073462c34">
+	<link rel="stylesheet" href="/static/css/common/web_popup_box_cdn.css?0afada473953">
+	
+	
+
+
+
+
+
+	
+
+
+	<title>Shopee</title>
+
+
+
+
+
+
+
+    <script type="text/javascript">
+    ;(function() {
+        var SCRIPT_FAIL_THRESHOLD = 90000;
+        setTimeout(function() {
+            if (window.$ || window.jQuery) {
+                // console.log("jquery has been loaded successfully");
+                return true;
+            } else {
+                // jquery is not loaded after max timeout, we considered the script has fail to load
+                // it's time to show error message
+
+                // clear whatever dom content we have
+                document.body.innerHTML = document.getElementById("tap-to-reload").innerHTML;
+                document.body.addEventListener("touchend", function() {
+                    window.location.reload(true); // reload from server, not cache
+                }, false);
+
+                // set alert message to vertical center
+                var alertMessageDom = document.getElementsByClassName("alert-message")[0];
+                var viewportHeight = document.documentElement.clientHeight;
+                alertMessageDom.style.marginTop
+                        = Math.floor((viewportHeight - alertMessageDom.style.lineHeight)/2) + "px";
+            }
+        }, SCRIPT_FAIL_THRESHOLD);
+    })();
+</script>
+<script id="tap-to-reload" type="text/template">
+    <style>
+        body {
+            vertical-align : middle;
+            text-align : center;
+        }
+        .alert-message {
+            font-size : 18px;
+            vertical-align : middle;
+            display : inline-block;
+        }
+    </style>
+    <p class="alert-message">
+        Tap to reload again
+    </p>
+</script>
+
+	<script type="text/javascript">
+	var ORIGIN_WHITE_LIST = ['www.facebook.com', 'facebook.com'];
+	function isSameOrigin() {
+		var selfHost = window.self.location.hostname;
+		var topHost = window.top.location.hostname;
+
+		if (topHost in ORIGIN_WHITE_LIST) {
+			return true;
+		}
+		// same domain, including 127.0.0.1, localhost etc
+		if (selfHost === topHost) {
+			return true;
+		}
+		// other domain not contain shopee keyword
+		if (topHost.indexOf('shopee') === -1) {
+			return false;
+		}
+		var topRootDomain = topHost.slice(topHost.indexOf('shopee'));
+		var selfRootDomain = selfHost.slice(selfHost.indexOf('shopee'));
+		return topRootDomain == selfRootDomain;
+	}
+
+	if (!isSameOrigin()) {
+		document.body.style.display = 'none';
+	} else { }
+</script>
+	<script type="text/javascript">
+
+
+
+{
+	function _getGlobals_()
+	{
+		var toRet = {};
+		try
+		{
+			for(var k in window)
+			{
+				if(window.hasOwnProperty(k))
+					toRet[k]= true;
+			}
+		}
+		catch(e){}
+		return toRet;
+	}
+	window._resetGlobals_ = function(resetTo)
+	{
+		var vars = resetTo;
+		for(var k in window)
+		{
+			if(window.hasOwnProperty(k) && vars[k] == null)
+			{
+				window[k] = null; //Note: delete doesn't work for window's fields.
+			}
+		}
+	};
+	if(navigator.userAgent.indexOf('Shopee') >= 0 && (navigator.userAgent.indexOf('iPhone') >= 0 || navigator.userAgent.indexOf('iPad') >= 0 || navigator.userAgent.indexOf('iPod') >= 0))
+	{
+		window.ORIGINAL_GLOBAL_VARS = _getGlobals_();
+	}
+	window.GTimeoutAndInterval = (function(){
+		var idsTimeout = {};
+		var idsInterval = {};
+		var funcSetTimeout = window.setTimeout;
+		var funcClearTimeout = window.clearTimeout;
+		var funcSetInterval = window.setInterval;
+		var funcClearInterval = window.clearInterval;
+
+		window.setTimeout = function(func, delay){
+			var id = funcSetTimeout(func, delay);
+			idsTimeout[id] = id;
+			return id;
+		};
+		window.clearTimeout = function(id){
+			funcClearTimeout(id);
+			delete idsTimeout[id];
+		};
+
+		window.setInterval = function(func, interval){
+			var id = funcSetInterval(func, interval);
+			idsInterval[id] = id;
+			return id;
+		};
+		window.clearInterval = function(id){
+			funcClearInterval(id);
+			delete idsInterval[id];
+		};
+
+		function clearAll(skipSelf)
+		{
+			for(var k in idsTimeout)
+				funcClearTimeout(k);
+			for(var k in idsInterval)
+				funcClearInterval(k);
+			idsTimeout = {};
+			idsInterval = {};
+			if(skipSelf) return;
+
+			window.setTimeout = funcSetTimeout;
+			window.setInterval = funcSetInterval;
+			window.clearTimeout = funcClearTimeout;
+			window.clearInterval = funcClearInterval;
+			funcSetTimeout = null;
+			funcClearTimeout = null;
+			funcClearInterval = null;
+			funcSetInterval = null;
+		}
+
+		return {
+			clearAll: clearAll,
+		};
+	})();
+
+	function hookEventTarget(target)
+	{
+		var p = target.prototype || target.__proto__;
+		if(!p) return;
+
+		p.addEventListenerBase = p.addEventListener;
+		p.addEventListener = function(type, listener)
+		{
+			if(!this.EventList) { this.EventList = {}; }
+			// This condition prevents the crash when jQueryMobile is re-evaluated after iOS cache invalidation. (Comment out this condition and force cache invalidation in iOS to see the crash in action.)
+			if(this.addEventListenerBase)
+				this.addEventListenerBase.apply(this, arguments);
+			if(!this.EventList[type]) { this.EventList[type] = []; }
+			var list = this.EventList[type];
+			for(var index = 0; index != list.length; index++)
+			{
+				if(list[index] === listener) { return; }
+			}
+			list.push(listener);
+		};
+
+		p.removeEventListenerBase = p.removeEventListener;
+		p.removeEventListener = function(type, listener)
+		{
+			if(!this.EventList) { this.EventList = {}; }
+			// This second condition prevents the crash when jQueryMobile is re-evaluated after iOS cache invalidation.
+			if((listener instanceof Function) && this.removeEventListenerBase)
+			{
+				this.removeEventListenerBase.apply(this, arguments);
+			}
+			if(!this.EventList[type]) { return; }
+			var list = this.EventList[type];
+			for(var index = 0; index != list.length;)
+			{
+				var item = list[index];
+				if(!listener)
+				{
+					this.removeEventListenerBase(type, item);
+					list.splice(index, 1); continue;
+				}
+				else if(item === listener)
+				{
+					list.splice(index, 1); break;
+				}
+				index++;
+			}
+			if(list.length == 0) { delete this.EventList[type]; }
+		};
+
+		p.removeAllEvents = function()
+		{
+			if(!this.EventList) return;
+			for(var type in this.EventList)
+			{
+				if(!this.EventList.hasOwnProperty(type)) continue;
+				var list = this.EventList[type];
+				if(!list) continue;
+				for(var j=0; j<list.length; j++)
+				{
+					this.removeEventListenerBase(type, list[j]);
+				}
+				delete this.EventList[type];
+			}
+		};
+	}
+
+	function unhookEventTarget(target)
+	{
+		var p = target.prototype || target.__proto__;
+		if(!p) return;
+
+		if(p.addEventListenerBase)
+			p.addEventListener = p.addEventListenerBase;
+		if(p.removeEventListenerBase)
+			p.removeEventListener = p.removeEventListenerBase;
+	}
+
+	try
+	{
+		// Note: Originally I wanted to do this with EventTarget.prototype...., but seems iOS doesn't expose EventTarget interface. So we have to do it one by one.
+		hookEventTarget(Window);
+		hookEventTarget(Document);
+		hookEventTarget(Element);
+	}
+	catch(e)
+	{
+		console.log('hookEventTarget.ex', e);
+	}
+}
+</script>
+
+
+
+
+	
+		
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+	var USERID = null;
+	var ALERT_LIKE_PRIVACY_MSG = false;
+	var CC_INSTALLMENT_PAYMENT_ELIGIBILITY = true;
+	var NON_CC_INSTALLMENT_PAYMENT_ELIGIBILITY = true;
+
+
+
+
+	var CURRENT_PATH = '/universal\u002Dlink/wallet/pay';
+
+	var CURRENT_SHOPID = 'None';
+	var VERSION = '';
+	var APPVER = '';
+	var LANGUAGE = 'id';
+	var IS_FB_APP = false;
+
+	var T_EM_H = '';
+
+
+</script>
+
+
+
+<script type="text/javascript">
+
+
+	var LOCALE = 'ID';
+	var ENVIRONMENT = 'UAT';
+	var POPTAB_FIRST = true;
+	var POPTAB_FIRST_HASHTAG = false;
+	var SHOW_TOP_SALES_TABS = true;
+
+	var ITEM_IMAGE_BASE_URL = 'https://cf.shopee.co.id/file/';
+	var ITEM_VIDEO_BASE_URL = 'https://cv.shopee.co.id/video/';
+	var ROOT_DOMAIN = 'uat.shopee.co.id';
+	var COOKIE_DOMAIN = 'shopee.co.id';
+
+	
+	var msg_server_error = 'Telah terjadi kesalahan.Silakan mencoba beberapa saat lagi.';
+	var label_ok = 'OK';
+
+	var T_GA_ID = 'UA\u002D61904553\u002D8';
+	var T_GA_ID_PC = 'UA\u002D61904553\u002D8';
+	var T_FB_ID = '466924370133774';
+	var T_CRITEO_ID = '34652';
+
+
+
+
+	var T_BI_SIG = "SPC_T_ID";
+	var T_BI_IV = "SPC_T_IV";
+	var SHOW_SHOPEE_VERIFIED_FILTER = true;
+	var SHOW_IN_PAGE_FILTER = true;
+	var MARKET_TRACKING_TOKEN_NAME = "smtt_v0";
+	var MARKET_TRACKING_TOKEN_V2_NAME = "smtt";
+	var MARKET_TRACKING_ADS_AFFILIATION_TOKEN = "sp_af";
+	var RN_BUNDLE_VERSION_COOKIE_NAME = "SPC_RNBV";
+	var PRICEZA_MERCHANT_ID = 7077;
+	var CONFIG_WALLET_KYC = false;
+	var AIRPAY_CLIENT_API_ENDPOINT = 'https://capi.uat.wallet.airpay.co.id';
+	var CONFIG_COIN_INFLATION = 1;
+	var CONFIG_CONTACT_US_NUMBER = JSON.parse('{\u0022phone_number\u0022:\u00221500702\u0022,\u0022operating_hours\u0022:\u0022Layanan Pelanggan 24 Jam, Senin s/d Minggu, termasuk Hari Libur Nasional.\u0022,\u0022email_address\u0022:\u0022support@shopee.co.id\u0022}')['phone_number'];
+
+
+	var IS_MALL_PAGE = true;
+	var STATIC_URL = '/static/';
+	var SIMPLE_VERSION = false;
+	var DEBUG = false;
+	var LOCALHOST = false;
+	var STAGING = false;
+	var ANDROID_FRIENDLY = false;
+	var ENABLE_RATING_REPLY = true;
+	var ADULT_AGE = '21';
+	var ENABLE_LOCATION_FILTER = true;
+	var ENABLE_LOCATION_FILTER_IN_PAGE = true;
+	var CONFIG_BRANDING_SHOPEE_WALLET_AS_MY_WALLET = false;
+	var CONFIG_ENABLE_AIRPAY_BUYER_WALLET = false;
+	var CONFIG_ENABLE_SHOPEE_BUYER_WALLET_V2 = true;
+	var SHOW_SOLD_COUNT = true;
+	var OPC_CART_MUST_HAVE_ADDRESS = true;
+	var CONFIG_FLASH_SALE_NAMED_AS_FLASH_DEAL = false;
+	var SHIPPING_OPTION_FILTER = true;
+	var ENABLE_SHIPPING_FILTER_PAGE = true;
+	var CONFIG_FLASH_SALE_NAME_KEY = "flash_sale";
+	var CONFIG_OFFICIAL_SHOP_ROOT_URL = "/mall";
+	var show_from_same_shop = true;
+	var CONFIG_SHOW_FROM_SAME_SHOP_SHOW_SECTION = true;
+	var ENABLE_OFFICIAL_SHOP_FILTER = true;
+	var ENABLE_OFFICIAL_SHOP_FILTER_IN_PAGE = true;
+	var ENABLE_INSTALLMENT_PAYMENT = false;
+	var ENABLE_CC_INSTALLMENT_PAYMENT = true;
+	var ENABLE_NON_CC_INSTALLMENT_PAYMENT = true;
+	var LOWEST_PRICE_GUARANTEE_SHOP = [{"userid":80346,"shopid":80347}];
+	var INSTALLMENT_FILTER = false;
+	var CONFIG_BRAND_LIST = true;
+	var CONFIG_RW_ONE_PAGE_CHECKOUT = true;
+	var CONFIG_ENABLE_LOCAL_WALLET = false;
+	var CONFIG_DIGIT_GROUP_SYMBOL = ".";
+	var CONFIG_FREE_SHIPPING_VOUCHER = true;
+	var TRACKING_URL_PARAMS = ["smtt","smtt_v0"];
+	var MARKET_UNIVERSAL_LANDING_PAGE_PREFIX = "/universal-link";
+	var CONFIG_ROUND_TO_DECIMAL_PLACE_FOR_BUYER_WALLET = 0;
+	var DS_GEO_DOMAIN = "https://geo.idata.uat.shopee.com";
+	var VIEW_NAME = "mall.home.views.home";
+
+
+	var _gaq = [];
+
+	var _djangofy_t_ = {};
+
+	var _transify_t_ = {};
+
+	var i18njs = false;
+
+	window.criteo_q = window.criteo_q || [];
+
+	window.RN_PERCENTAGE = {"default":100,"checkout":100};
+	window.RN_PAGE_MIN_VERSION_ANDROID = {"default":21416,"checkout":21200};
+	window.RN_PAGE_MIN_VERSION_IOS = {"default":21400,"checkout_cancel_provide_reason":24705,"checkout":21200};
+	window.RN_PAGE_MIN_VERSION_BUNDLE = {"default":0,"checkout_cancel_provide_reason":3032012,"new_change_payment_method_page":4010000,"order_paid":2065000};
+
+</script>
+
+
+	<script>
+  var gtmDataLayer = [{
+	  'country': window.LOCALE.toLowerCase(),
+	  'userid': window.USERID,
+	  'source': 'mweb'
+  }];
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','gtmDataLayer','GTM-WJZQSJF');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+
+	<script type="text/javascript" src="/static/jsutil_min/tracking/fb_init.js?f40291411950" defer></script>
+	
+	<script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+	<script type="text/javascript">
+		window.criteo_q.push({event: "setAccount", account: T_CRITEO_ID });
+		if(window.T_EM_H)
+			window.criteo_q.push({ event: "setEmail", email: window.T_EM_H });
+	</script>
+	
+
+
+
+
+
+	<script type="text/javascript" src="/static/jslib_min/jslib_base.js?1788b252f5d8"></script>
+
+
+
+
+<script>
+_transify_t_["label_mil_id"] = "JT";
+_transify_t_["label_mil_ph"] = "jt";
+_transify_t_["alert_set_default_ba_failed"] = "alert_set_default_ba_failed";
+_transify_t_["label_ok"] = "OK";
+_transify_t_["label_mil_th"] = "juta";
+_transify_t_["tooltips_shipping_fee_included"] = "Gunakan fitur “Chat” untuk konfirmasi ongkos kirim dengan Penjual. Jika perlu, gunakan fitur \u0022Tawar\u0022 untuk menyesuaikan Harga (mengikuti ongkos kirim yang tepat).";
+_transify_t_["label_used"] = "Pernah Dipakai";
+_transify_t_["label_used_good"] = "Pernah pakai (kualitas bagus)";
+_transify_t_["label_years"] = "tahun";
+_transify_t_["label_apps"] = "Aplikasi";
+_transify_t_["text_download_shopee_for_more_function"] = "Silakan download aplikasi Shopee untuk menikmati lebih banyak fitur!";
+_transify_t_["alert_bank_account_wallet_pin_changed"] = "Permintaan Anda tidak dapat diproses. Mohon coba lagi nanti atau hubungi Customer Service kami di {{hotline}}";
+_transify_t_["label_short_for_number_100000000"] = "N/A";
+_transify_t_["label_copied_failed"] = "Gagal disalin";
+_transify_t_["label_within_hours"] = "Hitungan jam";
+_transify_t_["label_short_for_number_10000"] = "N/A";
+_transify_t_["label_latest"] = "Terbaru";
+_transify_t_["alert_set_rejected_account_default"] = "Anda tidak dapat menjadikan bank yang ditolak sebagai yang utama";
+_transify_t_["label_new_without_tags"] = "Baru (tanpa label)";
+_transify_t_["label_price"] = "Harga";
+_transify_t_["alert_bank_account_no_change"] = "Mohon ubah detil rekening bank untuk melanjutkan.";
+_transify_t_["label_cancel"] = "Nanti Saja";
+_transify_t_["label_year_abbr"] = "th";
+_transify_t_["alert_bank_account_duplicate"] = "Anda tidak dapat membuat 2 rekening bank yang sama";
+_transify_t_["alert_bank_info_not_valid"] = "Beberapa informasi rekening bank tidak sah, mohon masukkan kembali";
+_transify_t_["label_week"] = "minggu";
+_transify_t_["label_day"] = "hari";
+_transify_t_["tooltips_days_to_ship"] = "Jumlah hari yang dibutuhkan Penjual menyiapkan pengiriman Anda";
+_transify_t_["label_day_abbr"] = "hari";
+_transify_t_["label_not_set"] = "Belum ditetapkan";
+_transify_t_["tooltips_shipping_fee_included_my"] = "Chat dengan Penjual untuk negosiasi mengenai ongkos kirim, silakan chat dengan Penjual";
+_transify_t_["msg_ios_coming_soon"] = "Segera hadir untuk versi iOS";
+_transify_t_["label_popular"] = "Populer";
+_transify_t_["alert_delete_default_account"] = "Anda tidak dapat menghapus rekening bank utama";
+_transify_t_["label_hour"] = "jam";
+_transify_t_["label_within_1_day"] = "Dalam 1 hari";
+_transify_t_["label_prep_within"] = "dalam";
+_transify_t_["alert_delete_pending_account"] = "Anda tidak dapat menghapus rekening ini karena ada pesanan/dana yang belum diproses";
+_transify_t_["label_store_number"] = "No. Toko";
+_transify_t_["label_hours"] = "jam";
+_transify_t_["label_k_th"] = "พัน";
+_transify_t_["label_copied_successfully"] = "Berhasil disalin";
+_transify_t_["alert_bank_account_banned"] = "No. Rekening ini telah diblokir karena terdeteksi adanya kejanggalan. Mohon masukkan No. Rekening lainnya atau hubungi Customer Service kami.";
+_transify_t_["label_short_for_number_1000000"] = "JT";
+_transify_t_["label_new_with_defects"] = "Baru (dengan cacat)";
+_transify_t_["label_get"] = "Download Sekarang";
+_transify_t_["alert_bank_account_blacklisted"] = "No. Rekening ini telah diblokir karena terdeteksi adanya kejanggalan. Mohon masukkan No. Rekening lainnya atau hubungi Customer Service kami.";
+_transify_t_["label_k_vn"] = "k";
+_transify_t_["label_k_ph"] = "k";
+_transify_t_["alert_bank_account_reach_limit"] = "Anda telah mencapai jumlah akun bank maksimum yang diijinkan.";
+_transify_t_["label_hour_abbr"] = "jam";
+_transify_t_["label_new_others"] = "Baru lainnya";
+_transify_t_["label_days"] = "hari";
+_transify_t_["label_shopee"] = "Shopee";
+_transify_t_["label_year"] = "tahun";
+_transify_t_["label_k_id"] = "RB";
+_transify_t_["label_weeks"] = "minggu";
+_transify_t_["label_used_like_new"] = "Pernah Dipakai";
+_transify_t_["label_new_with_tags"] = "Baru";
+_transify_t_["msg_server_error"] = "Telah terjadi kesalahan.Silakan mencoba beberapa saat lagi.";
+_transify_t_["label_mil_vn"] = "tr";
+_transify_t_["label_week_abbr"] = "minggu";
+_transify_t_["alert_bank_account_phone_changed"] = "Permintaan Anda tidak dapat diproses. Mohon coba lagi nanti atau hubungi Customer Service kami di {{hotline}}";
+_transify_t_["label_used_with_defects"] = "Pernah dipakai (dengan cacat)";
+_transify_t_["label_short_for_number_1000"] = "RB";
+_transify_t_["alert_edit_bank_account_error"] = "hanya rekening bank yang ditolak yang dapat diubah";
+_transify_t_["label_minute_abbr"] = "menit";
+_transify_t_["label_minute"] = "menit";
+_transify_t_["label_prep_morethan"] = "Lebih dari";
+_transify_t_["label_used_acceptable"] = "pernah dipakai (kualitas baik)";
+_transify_t_["label_distance"] = "Terdekat";
+_transify_t_["label_within_days"] = "Hitungan hari";
+_transify_t_["label_just_now"] = "Baru saja";
+_transify_t_["label_within_minutes"] = "Hitungan menit";
+_transify_t_["label_minutes"] = "menit";
+</script>
+<script type="text/javascript" src="/static/jsutil_min/site.js?ffb8683827db"></script>
+<script>
+_transify_t_["label_help_center"] = "Pusat Bantuan";
+</script>
+<script type="text/javascript" src="/static/jsutil_min/help.js?b5b80aa1a47f"></script>
+
+
+
+
+
+<script>
+
+
+</script>
+
+<script type="text/template" id="shopee-action-sheet-item">
+
+<li class='action-sheet-item {% if data.disabled %}disabled{% endif %}' data-id={{data.id}}>
+	<div class='title'>
+		{{data.title}}
+	</div>
+	<div class='subtitle L12'>
+		{% if data.subtitle %}
+			{{data.subtitle}}
+		{% endif %}
+	</div>
+</li>
+
+</script>
+
+
+
+
+<script>
+
+
+</script>
+
+<script type="text/template" id="drop-down-menu-item">
+
+<li class='drop-down-menu-item {% if data.state %}drop-down-menu-item--disabled{% endif %}' data-id={{data.id}}>
+	<div class='drop-down-menu-item__content'>
+		<div class='drop-down-menu-item__content__title r14'>
+			{{data.title}}
+		</div>
+	</div>
+</li>
+
+</script>
+
+
+
+	<script>
+_transify_t_["msg_overseas_products_credit_card_only"] = "Gunakan Kartu Kredit atau Debit untuk checkout produk dari luar negeri.";
+_transify_t_["label_official_shops--TH"] = "Shopee Mall";
+_transify_t_["label_ok"] = "OK";
+_transify_t_["label_official_shops--ID"] = "Shopee Mall";
+_transify_t_["msg_app_geolocation_address"] = "Mohon gunakan Aplikasi Shopee untuk mengatur lokasi peta pada alamat ini.";
+_transify_t_["label_all_categories_s"] = "semua kategori";
+_transify_t_["label_online"] = "Online";
+_transify_t_["msg_cancel_order_upgrade"] = "Pembeli telah mengajukan pembatalan atas pesanan ini. Mohon update aplikasi Shopee Anda untuk dapat menjawab pengajuan pembatalan dari Pembeli.";
+_transify_t_["label_official_shops--PH"] = "Shopee Mall";
+_transify_t_["label_your_activity_are_public"] = "Pengikut Anda sekarang dapat melihat aktivitas pemberian komentar dan favorit Anda";
+_transify_t_["msg_offline_payment_disabled_singular"] = "__seller__ tidak mengaktifkan fungsi Transaksi Offline.";
+_transify_t_["label_unexpected_error"] = "Halaman bermasalah. Mohon coba lagi.";
+_transify_t_["label_official_shops--VN"] = "Shopee Mall";
+_transify_t_["text_retrieve_location_failed"] = "Lokasi tidak bisa ditemukan";
+_transify_t_["msg_total_price_exceed_channel_max"] = "Total pesanan yang dibuat telah melebihi batas yang diperbolehkan (#{max_amount}). Untuk keterangan lebih lanjut, hubungi Customer Service kami.";
+_transify_t_["label_official_shops--TW"] = "蝦皮商城";
+_transify_t_["label_ago"] = "__date__ lalu";
+_transify_t_["text_retrieve_location"] = "Memuat lokasi Anda...";
+_transify_t_["label_learn_more"] = "Pelajari Lebih Lanjut";
+_transify_t_["label_official_shops--MY"] = "Shopee Mall";
+_transify_t_["text_waiting_for_location"] = "Mencari lokasi...";
+_transify_t_["msg_you_will_receive_a_phone_call"] = "Kode verifikasi akan diinfokan kepada Anda melalui panggilan telepon dari Shopee.";
+_transify_t_["msg_buyer_address_not_support_cod"] = "Alamat Anda tidak mendukung metode COD";
+_transify_t_["msg_seller_has_blocked_you"] = "Pengguna ini telah membatasi penjualannya. Harap untuk membeli ke toko yang lain.";
+_transify_t_["label_filter"] = "Filter";
+_transify_t_["label_see_other_products"] = "Lihat Produk Lainnya";
+_transify_t_["msg_promo_offline_no_multiple_checkouts"] = "Kode promo hanya dapat digunakan untuk pesanan pada satu Penjual. Mohon ubah keranjang Anda.";
+_transify_t_["label_change_setting"] = "Ubah Pengaturan";
+_transify_t_["msg_payment_channel_banned_category"] = "Maaf, karena keranjang Anda memiliki produk dari kategori __category__, __payment_channel__ telah dinonaktifkan.";
+_transify_t_["label_age_control_ok_customize"] = "LANJUT";
+_transify_t_["label_age_control_msgs_customize"] = "Anda harus diatas __{age}__ tahun untuk melihat konten ini. Silakan konfirmasi umur Anda.";
+_transify_t_["label_search_in"] = "Cari dalam";
+_transify_t_["label_chat"] = "Chat";
+_transify_t_["label_call_me"] = "Hubungi Saya";
+_transify_t_["label_active_date_ago"] = "Aktif __date__ lalu";
+_transify_t_["label_m"] = "m";
+_transify_t_["label_edit_product"] = "Ubah Produk";
+_transify_t_["label_cart"] = "Keranjang";
+_transify_t_["msg_total_price_below_min_amount"] = "Minimal transaksi menggunakan metode pembayaran ini adalah __min_amount__. Silakan pilih metode pembayaran lainnya untuk checkout.";
+_transify_t_["msg_cod_not_all_supported_logistic"] = "Tidak semua jasa pengiriman mendukung COD";
+_transify_t_["msg_cod_temporarily_suspended"] = "Pembayaran COD dinonaktifkan selama 60 hari karena kami mendeteksi akun Anda terkait dengan akun yang memiliki jumlah pengiriman gagal yang besar. Silakan gunakan metode pembayaran lainnya.";
+_transify_t_["msg_pls_update_apps"] = "Update aplikasi Shopee Anda untuk menggunakan fitur ini.";
+_transify_t_["label_like"] = "Favorit";
+_transify_t_["label_cancel"] = "Nanti Saja";
+_transify_t_["label_official_shops--SG"] = "Shopee Mall";
+_transify_t_["msg_download_shopee_google"] = "Mohon download aplikasi Shopee melalui Google Play Store untuk menggunakan fitur ini.";
+_transify_t_["label_follow"] = "Ikuti";
+_transify_t_["msg_server_error"] = "Telah terjadi kesalahan.Silakan mencoba beberapa saat lagi.";
+_transify_t_["label_search_within_category"] = "Cari \u0022#{searchText}\u0022 dalam #{categoryName}";
+_transify_t_["msg_payment_option_maintenance"] = "__channelname__ sistem saat ini sedang dalam perbaikan, silakan pilih metode pembayaran yang lain.";
+_transify_t_["label_age_control_no_customize"] = "KEMBALI";
+_transify_t_["msg_order_total_exceed_cod_maximum"] = "Harga pesanan anda telah melebihi batas untuk COD (__cod_limit__ IDR). Mohon cek kembali pesanan anda atau pilih metode pembayaran yang lain untuk transaksi ini.";
+_transify_t_["label_km"] = "km";
+_transify_t_["alert_follow_limit"] = "Anda telah mencapai batas maksimal Mengikuti.";
+_transify_t_["label_following"] = "Mengikuti";
+_transify_t_["alert_follow_too_frequent"] = "Anda telah mencapai batas Mengikuti untuk hari ini. Silakan coba lagi besok.";
+_transify_t_["label_within"] = "sekitar";
+_transify_t_["label_share"] = "Share";
+_transify_t_["msg_total_price_exceed_credit_card_max"] = "Checkout Gagal (C07): Kamu telah melewati batas maks. pembayaran harian dengan kartu kredit. Mohon coba metode pembayaran lain.";
+_transify_t_["label_more_than_200km_away"] = "lebih dari 200KM";
+_transify_t_["msg_promo_code_no_offline_payment"] = "Penjual\u002DPembeli Atur Sendiri tidak dapat dipilih ketika menggunakan kode promosi.";
+</script>
+<script type="text/javascript" src="/static/jsutil_min/jsutil_base.js?a8ccaeedba72"></script>
+
+
+
+	<script type="text/javascript" src="/static/jslib/jquery.mobile.custom.min.js?ef4d69c9fa8a"></script>
+
+
+<script type="text/javascript" src="/static/pagejs_min/config.js?d5c0b1924e6e"></script>
+<script type="text/javascript" src="/static/pagejs_min/server_constant.js?7f96ac6c3511"></script>
+
+
+	<script type="text/javascript" src="/static/jsutil_min/BJBridgeReceiver.js?4c72c845908c"></script>
+	
+
+	<script>
+_transify_t_["msg_facebook_please_copy_link"] = "Silakan salin URL dan tempel di Aplikasi Safari. Maaf atas ketidaknyamanannya.";
+_transify_t_["label_search_within"] = "Cari dalam";
+</script>
+<script type="text/javascript" src="/static/pagejs_min/common/deep_linking.js?b22f48077eff"></script>
+	<script type="text/javascript" src="/static/jslib/velocity.min.js?8fb122e8a4ed"></script>
+	<script type="text/javascript" src="/static/jsutil_min/multi_target_event_dispatcher.js?49f854421b97"></script>
+	<script type="text/javascript" src="/static/pagejs_min/common/app_header_controller.js?1b75c9f515b7"></script>
+	<script type="text/javascript">
+		$(function() {
+			AppHeaderController.init($('.header'));
+		});
+		
+		
+		
+		window.criteo_q.push({ event: "setSiteType", type: isPC() ? "d" : "m" });
+		
+	</script>
+
+	
+
+
+
+
+	
+	
+	<script>
+		var universalLandingPrefix = '/universal-link';
+		
+			_transify_t_['label_loading'] = "Memuat";
+		
+	</script>
+	<script type="text/javascript" src="/static/pagejs_min/home/universal_landing_page.js?c4e4b9652fa4"></script>
+
+
+	
+
+	<link rel="alternate" href="android-app://com.shopee.id/shopeeid/home?navRoute=eyJwYXRocyI6W3sid2ViTmF2Ijp7InVybCI6Imh0dHBzOi8vdWF0LnNob3BlZS5jby5pZC91bml2ZXJzYWwtbGluay93YWxsZXQvcGF5P2RlZXBfYW5kX2RlZmVycmVkPTEmdG9rZW49ZEZoa2JtUjFiVEJJYW1oV2xRUElaMGY3b0t5YjJMcFdBMlRveWFlYWFHUmM2clRoVzBHSUphbnJ5N28mX2dzcmM9aHR0cHMlM0EvL3VhdC5zaG9wZWUuY28uaWQvdW5pdmVyc2FsLWxpbmsvd2FsbGV0L3BheSUzRmRlZXBfYW5kX2RlZmVycmVkJTNEMSUyNnRva2VuJTNEZEZoa2JtUjFiVEJJYW1oV2xRUElaMGY3b0t5YjJMcFdBMlRveWFlYWFHUmM2clRoVzBHSUphbnJ5N28ifX1dfQ%3D%3D" />
+	<link rel="alternate" href="ios-app://959841443/shopeeid/home?navRoute=eyJwYXRocyI6W3sid2ViTmF2Ijp7InVybCI6Imh0dHBzOi8vdWF0LnNob3BlZS5jby5pZC91bml2ZXJzYWwtbGluay93YWxsZXQvcGF5P2RlZXBfYW5kX2RlZmVycmVkPTEmdG9rZW49ZEZoa2JtUjFiVEJJYW1oV2xRUElaMGY3b0t5YjJMcFdBMlRveWFlYWFHUmM2clRoVzBHSUphbnJ5N28mX2dzcmM9aHR0cHMlM0EvL3VhdC5zaG9wZWUuY28uaWQvdW5pdmVyc2FsLWxpbmsvd2FsbGV0L3BheSUzRmRlZXBfYW5kX2RlZmVycmVkJTNEMSUyNnRva2VuJTNEZEZoa2JtUjFiVEJJYW1oV2xRUElaMGY3b0t5YjJMcFdBMlRveWFlYWFHUmM2clRoVzBHSUphbnJ5N28ifX1dfQ%3D%3D" />
+
+	
+	
+	<meta property="al:ios:url" content="shopeeid://home?navRoute=eyJwYXRocyI6W3sid2ViTmF2Ijp7InVybCI6Imh0dHBzOi8vdWF0LnNob3BlZS5jby5pZC91bml2ZXJzYWwtbGluay93YWxsZXQvcGF5P2RlZXBfYW5kX2RlZmVycmVkPTEmdG9rZW49ZEZoa2JtUjFiVEJJYW1oV2xRUElaMGY3b0t5YjJMcFdBMlRveWFlYWFHUmM2clRoVzBHSUphbnJ5N28mX2dzcmM9aHR0cHMlM0EvL3VhdC5zaG9wZWUuY28uaWQvdW5pdmVyc2FsLWxpbmsvd2FsbGV0L3BheSUzRmRlZXBfYW5kX2RlZmVycmVkJTNEMSUyNnRva2VuJTNEZEZoa2JtUjFiVEJJYW1oV2xRUElaMGY3b0t5YjJMcFdBMlRveWFlYWFHUmM2clRoVzBHSUphbnJ5N28ifX1dfQ%3D%3D" />
+    <meta property="al:ios:app_store_id" content="959841443" />
+    <meta property="al:android:url" content="shopeeid://home?navRoute=eyJwYXRocyI6W3sid2ViTmF2Ijp7InVybCI6Imh0dHBzOi8vdWF0LnNob3BlZS5jby5pZC91bml2ZXJzYWwtbGluay93YWxsZXQvcGF5P2RlZXBfYW5kX2RlZmVycmVkPTEmdG9rZW49ZEZoa2JtUjFiVEJJYW1oV2xRUElaMGY3b0t5YjJMcFdBMlRveWFlYWFHUmM2clRoVzBHSUphbnJ5N28mX2dzcmM9aHR0cHMlM0EvL3VhdC5zaG9wZWUuY28uaWQvdW5pdmVyc2FsLWxpbmsvd2FsbGV0L3BheSUzRmRlZXBfYW5kX2RlZmVycmVkJTNEMSUyNnRva2VuJTNEZEZoa2JtUjFiVEJJYW1oV2xRUElaMGY3b0t5YjJMcFdBMlRveWFlYWFHUmM2clRoVzBHSUphbnJ5N28ifX1dfQ%3D%3D" />
+    <meta property="al:android:package" content="com.shopee.id" />
+
+</head>
+<body>
+
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJZQSJF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+
+
+
+
+	
+		
+
+<div class="header ">
+	
+	<div class='inner middle-centered-div'>
+		
+		<div class='icon_left ic_icon  ic_arrow_back clickable_area'>
+		</div>
+		
+
+		
+		<div class="search-bar flex1 hidden">
+			<div class="search-bar-input-wrapper middle-centered-div flex1">
+				<div class="ic_search ic_icon"></div>
+				<form class='search_form flex1' action='.'>
+					<input class="search-input flex1 L12" type='search'>
+				</form>
+				<div class='dropdown-holder'>
+					<div class='dropdown-content one r12'>
+					</div>
+					<div class='dropdown-content two r12'>
+					</div>
+				</div>
+			</div>
+			<div class="search-bar-space-holder flex1 hidden page_name L16">
+				
+			</div>
+			<div class="ic_search_red ic_icon hidden clickable_area"></div>
+		</div>
+		<div class="no-search-bar-holder center-nav flex1">
+			<div class="search-bar-space-holder flex1 page_name L16 truncate">
+			</div>
+		</div>
+		
+
+		
+
+		
+			
+		
+		
+		<div class='second-panel'>
+			<a href='/buyer/login/signup/'>
+				<div class='signup-btn'>Daftar</div>
+			</a>
+			<a href='/buyer/login/'>
+				<div class='login-btn'>Login</div>
+			</a>
+		</div>
+		
+        <div class="clearfix"></div>
+	</div>
+</div>
+<div class='header-holder '>
+</div>
+<div class='body-mask'>
+</div>
+<div class='lure-hold'>
+	<div class='close_btn but_no_close' onclick='hideProm()'>
+	</div>
+
+    <div class='dogi-logo'>
+        <div class='ic_logo_get'></div>
+    </div>
+
+	<div class='show-text L13'>
+	</div>
+	<div class='bottom'>
+
+
+        <div class="get_app_btns_wrapper">
+            <div class="full">
+                <a id='get_app_link' target='_blank' href='' class='btn'>Download Sekarang</a>
+            </div>
+            <div class="half"><a id='get_ios_app_link' target='_blank' href='' class='btn' onclick="_track_download_ios();">
+                    <div class="ic_IPhone icon"></div>
+                    <div>iPhone</div>
+                </a>
+            </div><div class="half"><a id='get_android_app_link' target='_blank' href='' class='btn' onclick="_track_download_android();">
+                    <div class="ic_Android icon"></div>
+                    <div>Android</div>
+                </a></div>
+
+        </div>
+
+	</div>
+</div>
+
+	
+
+	<div class="shopee-confirm-modal hidden">
+</div>
+<div class="shopee-confirm hidden">
+	<div class="confirm-title">
+		<div class="content"></div>
+	</div>
+	<div class="confirm-message">
+		<div class="content"></div>
+	</div>
+	<div class="confirm-button-holder middle-centered-div">
+		<div class="confirm-button cancel" data-button-id="1"></div>
+		<div class="flex1" data-button-id="0"></div>
+		<div class="confirm-button ok" data-button-id="0"></div>
+	</div>
+</div>
+
+	<div class="shopee-action-sheet-mask"></div>
+<div class="shopee-action-sheet-container center-container isPC">
+</div>
+
+	
+
+<div id='pin-popup'>
+	<div class='popup'>
+		<div class='title r16'>
+		</div>
+		<div class='message r16'>
+		</div>
+		<div class='digit-holder'>
+			<div class='digit-input'>
+			</div><div class='digit-input'>
+			</div>
+		</div>
+		<div class='btn-holder'>
+			<div class='cancelText' data-button-id=1>
+			</div><div class='okText' data-button-id=0>
+			</div>
+		</div>
+	</div>
+	<div class='digit-keyboard'>
+		<div class='digit-row'>
+			<div class='digit r14'>1</div><div class='digit r14'>2</div><div class='digit r14'>3</div>
+		</div>
+		<div class='digit-row'>
+			<div class='digit r14'>4</div><div class='digit r14'>5</div><div class='digit r14'>6</div>
+		</div>
+		<div class='digit-row'>
+			<div class='digit r14'>7</div><div class='digit r14'>8</div><div class='digit r14'>9</div>
+		</div>
+		<div class='digit-row'>
+			<div class='digit r14'></div><div class='digit r14'>0</div><div class='delete r14'>Hapus</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+	<div class='web-popup-mask'></div>
+<div class='web-popup-holder center-container'>
+	<div class='title'></div>
+	<div class='image'></div>
+	<div class='text'></div>
+	<div class='button'></div>
+</div>
+
+	<div class='web-popup-box-mask'></div>
+<div class='web-popup-box-holder center-container'>
+	<div class='title'></div>
+	<div class='image'></div>
+	<div class='text'></div>
+	<div class='cancel'></div>
+	<div class='confirm'></div>
+</div>
+
+	
+<div id="_alert_bg" class="hidden">
+	<div id="_alert_content" class="center-container">
+		<div class='img hidden'></div>
+		<span></span>
+		<div class="middle-centered-div alert-btn-group">
+			<div class="btn-dismiss-alert flex1">Tidak</div>
+			<div class="btn-confirm-alert flex1">Ya</div>
+		</div>
+	</div>
+</div>
+<div id="_alert_msg" class="center-container hidden">
+	<div class='img hidden'></div>
+	<span></span>
+	<div class="middle-centered-div alert-btn-group">
+		<div class="btn-dismiss-alert flex1">Tidak</div>
+		<div class="btn-confirm-alert flex1">Ya</div>
+	</div>
+</div>
+
+
+	
+
+	<div class='page_hide'></div>
+	<div class='general-mask'></div>
+
+
+
+
+	
+	
+
+
+
+	<script>
+{
+	var dur = (Date.now ? Date.now() : +new Date()) - QOS_PAGE_START_MS;
+	if(window._track_qos_pageload)
+		_track_qos_pageload(dur);
+	if(window.BI_ANALYTICS)
+		BI_ANALYTICS.qos(QOS_TYPE.HTML, dur);
+}
+
+if(window.__plvNeedSaveAllNodesState__)
+{
+	// __plv_saved_body__ = document.children[0].innerHTML;
+	window.__plv_saved_body__ = document.body.innerHTML;
+}
+</script>
+
+
+
+
+
+</body>
+</html>

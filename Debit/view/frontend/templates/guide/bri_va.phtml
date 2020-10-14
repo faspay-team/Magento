@@ -1,0 +1,80 @@
+<br>
+
+<button class="accordion" >Tata Cara Membayar Melalui ATM </button>
+<div class="panel">
+    <ol>
+        <li>Nasabah melakukan pembayaran melalui ATM Bank BRI</li>
+        <li>Pilih Menu Transaksi Lain</li>
+        <li>Pilih Menu Pembayaran</li>
+        <li>Pilih Menu Lainnya</li>
+        <li>Pilih Menu BRIVA</li>
+        <li>Masukan 16 digit Nomor Virtual Account <b><?php echo $faspayOrder->getTrxId() ?></b></li>
+        <li>Proses Pembayaran (Ya/Tidak)</li>
+        <li>Harap Simpan Struk Transaksi yang anda dapatkan</li>
+    </ol>
+</div>
+
+<button class="accordion" >Tata Cara Membayar Melalui Mobile Banking BRI </button>
+<div class="panel">
+    <ol>
+        <li>Nasabah melakukan pembayaran melalui Mobile/SMS Banking BRI</li>
+        <li>Nasabah memilih Menu Pembayaran melalui Menu Mobile/SMS Banking BRI</li>
+        <li>Nasabah memilih Menu BRIVA</li>
+        <li>Masukan 16 digit Nomor Virtual Account <b><?php echo $faspayOrder->getTrxId() ?></b></li>
+        <li>Masukan Jumlah Pembayaran sesuai Tagihan</li>
+        <li>Masukan PIN Mobile/SMS Banking BRI</li>
+        <li>Nasabah mendapat Notifikasi Pembayaran</li>
+    </ol>
+</div>
+
+<button class="accordion" >Internet Banking BRI </button>
+<div class="panel">
+    <ol>
+        <li>Nasabah melakukan pembayaran melalui Internet Banking BRI</li>
+        <li>Nasabah memilih Menu Pembayaran</li>
+        <li>Nasabah memilih Menu BRIVA</li>
+        <li>Masukan Kode Bayar dengan 16 digit Nomor Virtual Account <b><?php echo $faspayOrder->getTrxId() ?></b></li>
+        <li>Masukan Password Internet Banking BRI</li>
+        <li>Masukan mToken Internet Banking BRI</li>
+        <li>Nasabah mendapat Notifikasi Pembayaran</li>
+    </ol>
+</div>
+
+<button class="accordion" >ATM Bank Lain</button>
+<div class="panel">
+    <ol>
+        <li>Setelah memasukkan kartu ATM dan nomor PIN, pilih menu Transaksi Lainnya</li>
+        <li>Pilih menu Transfer</li>
+        <li>Pilih menu Ke Rek Bank Lain</li>
+        <li>Masukan Kode Bank Tujuan : BRI (Kode Bank : 002) lalu klik Benar</li>
+        <li>Masukkan jumlah pembayaran sesuai tagihan. Klik Benar</li>
+        <li>Masukan Nomor Virtual Account <b><?php echo $faspayOrder->getTrxId() ?></b></li>
+        <li>Pilih dari rekening apa pembayaran akan di-debet</li>
+        <li>Sistem akan memverifikasi data yang dimasukkan. Pilih Benar untuk memproses pembayaran</li>
+        <li>Harap Simpan Struk Transaksi yang anda dapatkan</li>
+    </ol>
+</div>
+
+
+
+
+<script >
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+
+
+

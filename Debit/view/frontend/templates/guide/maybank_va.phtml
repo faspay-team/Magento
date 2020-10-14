@@ -1,0 +1,68 @@
+<br>
+
+<button class="accordion" >Pembayaran VA Melalui Mesin ATM Maybank - Menu Pembayaran </button>
+<div class="panel">
+    <ol>
+        <li>Pilih menu PEMBAYARAN/TOP UP PULSA</li>
+        <li>Pilih menu VIRTUAL ACCOUNT</li>
+        <li>Masukkan nomor VIRTUAL ACCOUNT yang tertera pada halaman konfirmasi</li>
+        <li>Pilih YA untuk menyetujui pembayaran tersebut</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran VA Melalui Mesin ATM Maybank - Menu Transfer </button>
+<div class="panel">
+    <ol>
+        <li>Pilih menu TRANSFER</li>
+        <li>Pilih menu VIRTUAL ACCOUNT</li>
+        <li>Masukkan nomor VIRTUAL ACCOUNT yang tertera pada halaman konfirmasi</li>
+        <li>Masukkan jumlah pembayaran sesuai dengan yang ditagihkan dalam halaman konfirmasi</li>
+        <li>Silahkan masukkan nomor referensi apabila diperlukan, lalu tekan BENAR</li>
+        <li>Pilih YA untuk menyetujui pembayaran tersebut</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran VA Melalui Maybank Internet Banking </button>
+<div class="panel">
+    <ol>
+        <li>Silahkan login Internet Banking dari Maybank</li>
+        <li>Pilih menu Rekening dan Transaksi</li>
+        <li>Kemudian pilih Maybank Virtual Account</li>
+        <li>Masukkan nomor rekening dengan nomor Virtual Account Anda : <b><?php echo $faspayOrder->getTrxId() ?></b></li>
+        <li>Masukkan jumlah pembayaran sesuai dengan yang ditagihkan dalam halaman konfirmasi</li>
+        <li>Masukkan SMS Token (TAC) dan klik Setuju</li>
+    </ol>
+</div>
+
+<button class="accordion" >Pembayaran VA Melalui ATM Bank lain </button>
+<div class="panel">
+    <ol>
+        <li>Pilih menu TRANSFER ANTAR BANK </li>
+        <li>Pilih Maybank sebagai bank tujuan atau dengan memasukkan kode bank Maybank “016” diikuti dengan 16 digit nomor VIRTUAL ACCOUNT yang tertera pada halaman konfirmasi</li>
+        <li>Masukkan jumlah pembayaran sesuai dengan yang ditagihkan dalam halaman konfirmasi</li>
+        <li>Konfirmasikan transaksi anda pada halaman berikutnya. Apabila benar tekan BENAR untuk mengeksekusi transaksi</li>
+    </ol>
+</div>
+
+
+
+<script >
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+
+
+

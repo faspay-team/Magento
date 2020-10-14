@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="mid_7" translate="label" type="text" sortOrder="57" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>MID 7</label>
+
+        <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Enabled</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/mid_7/active</config_path>
+        </field>
+        <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Title</label>
+            <config_path>payment/mid_7/title</config_path>
+        </field>
+        <field id="mid" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Merchant ID</label>
+            <config_path>payment/mid_7/mid</config_path>
+        </field>
+        <field id="password" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Password</label>
+            <config_path>payment/mid_7/password</config_path>
+        </field>
+        <field id="minimum" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Minimum</label>
+            <config_path>payment/mid_7/minimum</config_path>
+
+        </field>
+    </group>
+</include>

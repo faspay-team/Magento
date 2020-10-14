@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Faspay_Debit::css/popup.css"/>
+        <title>Transaction Order Details</title>
+    </head>
+    <body>
+        <referenceBlock name="content">
+            <block class="Faspay\Debit\Block\Result"
+                   template="result.phtml"
+                   name="debit_index_result"
+                   cacheable="false"
+            /><!--cacheable false supaya data bisa diparsing-->
+
+        </referenceBlock>
+    </body>
+
+</page>

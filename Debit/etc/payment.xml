@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Payssion All rights reserved.
+ */
+-->
+<payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/payment.xsd">
+    <groups>
+        <group id="faspay_debit">
+            <label>Faspay Debit</label>
+        </group>
+    </groups>
+    <methods>
+        <method name="alfagroup">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="bca_va">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="bni_va">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="bri_mocash">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="bri_va">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="danamon_va">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="indomaret_point">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mandiri_bill">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mandiri_va">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="maybank_va">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="permata_va">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="xl_tunai">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+
+        <method name="bca_klikpay">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="bca_sakuku">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="bri_epay">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="cimb_clicks">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="danamon_online">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="kredivo">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mandiri_clickpay">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="mandiri_ecash">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="permata_net">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="t_cash">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="ovo">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="m2u">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="akulaku">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="shopee_app">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="shopee_qr">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="dana">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+
+    </methods>
+</payment>

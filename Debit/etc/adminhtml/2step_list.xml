@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <include path="Faspay_Debit::2step/alfagroup.xml" />
+    <include path="Faspay_Debit::2step/bca_va.xml" />
+    <include path="Faspay_Debit::2step/bni_va.xml" />
+    <include path="Faspay_Debit::2step/bri_mocash.xml" />
+    <include path="Faspay_Debit::2step/bri_va.xml" />
+
+    <include path="Faspay_Debit::2step/danamon_va.xml" />
+    <include path="Faspay_Debit::2step/indomaret_point.xml" />
+    <include path="Faspay_Debit::2step/mandiri_bill.xml" />
+    <include path="Faspay_Debit::2step/mandiri_va.xml" />
+    <include path="Faspay_Debit::2step/maybank_va.xml" />
+
+    <include path="Faspay_Debit::2step/permata_va.xml" />
+    <include path="Faspay_Debit::2step/xl_tunai.xml" />
+
+
+
+</include>

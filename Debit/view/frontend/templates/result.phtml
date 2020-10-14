@@ -1,0 +1,179 @@
+<?php
+    $faspayOrder = $this->getFaspayOrder();
+    $faspayChannel = $this->getFaspayChannel();
+    $order = $this->getOrder();
+    $data = $this->getHelper();
+
+    use Magento\Framework\View\Asset\Repository;
+
+    if(isset($_GET['order_id'])){
+        $noslash = explode("/",$_GET['order_id']);
+
+
+        if($noslash[0] == $faspayOrder->getOrderId()){
+?>
+
+    <div class="row">
+    <div class="">
+        <div class="">
+            <img src="<?php echo $this->getImage($faspayChannel->getBankCode()) ?>" alt="Logo" style="margin-bottom:30px;">
+            <form>
+                  <div class="">
+                        <label> <?php echo $faspayChannel->getBankName() ?> KODE BAYAR  : </label>
+				        <b><label class="form-control"><?php echo $faspayOrder->getTrxId() ?></label></b>
+                  </div>
+                  <div class="">
+                        <label>MERCHANT  : </label>
+                        <b><label class="form-control"><?php echo $data->getMerchantName() ?></label></b>
+                  </div>
+                <br>
+                <br>
+                    <?php
+                        if ($faspayChannel->getBankCode()=='shopee_qr') {
+                            $url = $block->getViewFileUrl('Faspay_Debit::images/qr').'/'.$faspayOrder->getTrxId().'.png';
+                    ?>
+                            <center>
+                                <img width="200px" height="auto" src=<?php echo $url; ?> class="qr-code">
+                            </center>
+                    <?php
+                        }
+                    ?>
+                    <center>
+			            <div class="expiretime">
+                            <h4>Your Payment Code will be expired after: </h4>
+                            <div id = hms><?php echo $this->getExpiry()?></div> <?php //echo $this->getExpiry()?>
+                               <script type="text/javascript">
+                                    var timeoutHandle;
+                                    function count() {
+
+                                        var startTime = document.getElementById('hms').innerHTML;
+                                        var pieces = startTime.split(":");
+                                        var time = new Date();    time.setHours(pieces[0]);
+                                        time.setMinutes(pieces[1]);
+                                        time.setSeconds(pieces[2]);
+                                        var timedif = new Date(time.valueOf() - 1000);
+                                        var newtime = timedif.toTimeString().split(" ")[0];
+                                        document.getElementById('hms').innerHTML=newtime;
+                                        timeoutHandle=setTimeout(count, 1000);
+                                    }
+                                    count();
+
+                                </script>
+                            <meta http-equiv="refresh" content="<?php echo $this->getExpiredOrder(); ?>;url= <?php echo $block->getUrl('debit/index/expired') ?>" />
+                            <h4>Please conduct the payment before the following expired time</h4>
+                        </div>
+                    </center>
+                <br>
+                <br>
+            </form>
+        </div>
+        <br>
+        <br>
+        <div class="">
+            <div class="">
+              <table class="table table-bordered table-striped tabel-theme">
+                  <thead>
+                      <tr>
+                          <th>NO</th>
+                          <th>ITEM</th>
+                          <th style="text-align: center">QUANTITY</th>
+                          <th style="text-align: center">SUBTOTAL</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                        <?php
+                            $items = $order->getAllItems();
+                            $count = 1;
+                            foreach($items as $item){
+                        ?>
+                            <tr>
+                                <td><?php echo $count  ?></td>
+                                <td><?php echo $item->getName()  ?></td>
+                                <td align = "center"><?php echo number_format($item->getQtyOrdered()) ?></td>
+                                <td align = "right"><?php echo $order->getBaseCurrencyCode()." ".$data->getNumFormat(($item->getRowTotalInclTax()),2)  ?></td>
+                            </tr>
+                        <?php
+                            $count++;
+                            }
+                        ?>
+                        <tr>
+                            <td><?php echo $count; $count++;?></td>
+                            <td>Shipping Fee</td>
+                            <td> </td>
+                            <td align = "right"><?php echo $order->getBaseCurrencyCode()." ".$data->getNumFormat(($order->getShippingInclTax()),2) ?></td>
+                        </tr>
+                  </tbody>
+              </table>
+            </div>
+
+            <br>
+            <br>
+                      <table border="0" >
+                          <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td width = 20% align="right"><h3 style="margin-top: 0px;">TOTAL PRICE : </h3></td>
+                                    <td width = 20%> <?php echo $order->getBaseCurrencyCode()." ".$data->getNumFormat(($order->getTotalDue()),2) ?></td>
+                                </tr>
+                          </tbody>
+                      </table>
+
+
+            <div>
+                <div>
+                    <div>
+
+                        <button onclick="document.getElementById('modal-wrapper').style.display='block'">Payment Guide</button>
+                        <div id="modal-wrapper" class="modal">
+                          <div class="modal-content animate">
+                                <div class="imgcontainer">
+                                  <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                                  <img src="<?php echo $this->getImage($faspayChannel->getBankCode()) ?>" alt="Logo" class="logochannel">
+                                  <h3 style="text-align:center">Payment Guide for <?php echo $faspayChannel->getBankName() ?></h3>
+                                </div>
+
+                                <div id="container">
+                                    <?php include ($block->getTemplateFile('Faspay_Debit::guide/'.$faspayChannel->getBankCode().'.phtml')) ?>
+                                </div>
+
+
+                           </div>
+                        </div>
+                        <script>
+                            // If user clicks anywhere outside of the modal, Modal will close
+
+                            var modal = document.getElementById('modal-wrapper');
+                            window.onclick = function(event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
+                            }
+                        </script>
+                    </div>
+                    
+                    <div>
+                        <a href="<?php echo $block->getUrl('/') ?>">
+                            <button type="button" class="btn btn-primary btn-lg">Continue Shopping</button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php
+}else{
+?>
+
+<h1>NO ORDER AVAILABLE</h1>
+
+<?php
+}}else{
+?>
+
+<h1>NO ORDER AVAILABLE</h1>
+
+<?php }?>
