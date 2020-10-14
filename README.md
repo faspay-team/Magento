@@ -1,6 +1,6 @@
 # Faspay magento - Magento Faspay payment Gateway
 
-Faspay ❤️ WooCommerce! Receive online payment on your WooCommerce store with Faspay payment gateway integration plugin.
+Faspay ❤️ Magento! Receive online payment on your Magento store with Faspay payment gateway integration plugin.
 
 
 # Description
