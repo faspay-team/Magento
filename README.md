@@ -31,5 +31,5 @@ This plugin will allow secure online payment on your Magento store, without your
  - Enter the magento root folders then open the command prompt then run the command **php bin / magento setup: upgrade** for installation and wait for it to finish.
  - After the installation is complete, the payment method Faspay can be seen in the **admin panel> stores> configuration> sales> payment method.**
  - Clear cache and reindex indexer before re-deploying magento.
- 
-## Donwload file .zip
+ ```
+ ### Download [File.zip](https://github.com/faspay-team/Magento/raw/master/Faspay.zip)
