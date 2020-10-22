@@ -75,7 +75,7 @@ class Redirect extends Action
             "AMOUNT"					=> $this->data->getNumFormat($order->getTotalDue(),0).'.00',
             "CURRENCYCODE"				=> $order->getBaseCurrencyCode(),
             "PAYMENT_METHOD"			=> '1',
-            "RESPONSE_TYPE"			    => '2', //via post method
+            "RESPONSE_TYPE"			    => '1', //via post method
             "RETURN_URL"              	=> $this->urlConfig->getBaseUrl() . '/credit/business/thankyou?order_id='.$order->getIncrementId(), //*
             "DESCRIPTION"             	=> $this->data->getTitle($order->getIncrementId()),
 

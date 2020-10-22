@@ -40,24 +40,12 @@ class ThankYou extends Template
     }
 
     public function check($order_id,$get){
-
         if($get){
-            //make to array
-            $array = explode("&",$get);
-
-            //assign the key
-            $response = array();
-            foreach($array as $string){
-                $body = explode("=",$string);
-                $key = $body[0];
-                $value = $body[1];
-                $response[$key] = $value;
-            }
             
         }
-
-        $orderNow = $this->orderFactory->create()->load($order_id);
-        $resultInquiry = $this->inquiry($orderNow,$response);
+        $order_id = $get['MERCHANT_TRANID'];
+        $orderNow = $this->orderFactory->create()->loadByIncrementId($order_id);
+        $resultInquiry = $this->inquiry($orderNow,$get);
 
         if($this->validateStatus($orderNow) == "complete"){
             return "Your Payment process with the following order id : ".$order_id." has been succeed";

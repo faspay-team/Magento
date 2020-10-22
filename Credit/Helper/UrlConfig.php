@@ -18,10 +18,10 @@ Class UrlConfig extends AbstractHelper{
     protected $data;
 
     const SANDBOX_BASE_URL = 'https://fpgdev.faspay.co.id/payment';
-    const PRODUCTION_BASE_URL = 'https://pay-uat.faspay.co.id/payment';
+    const PRODUCTION_BASE_URL = 'https://fpg.faspay.co.id/payment';
 
     const SANDBOX_VOID_URL = 'https://fpgdev.faspay.co.id/payment/api';
-    const PRODUCTION_VOID_URL = 'https://pay-uat.faspay.co.id/payment/api';
+    const PRODUCTION_VOID_URL = 'https://fpg.faspay.co.id/payment/api';
 
 
 
@@ -29,10 +29,15 @@ Class UrlConfig extends AbstractHelper{
     {
         parent::__construct($context);
         $this->data = $data;
+        if($this->data->getProduction()==1){
+            $this->isProduction = true;
+        }
+        else if($this->data->getProduction()==0){
+            $this->isProduction = false;
+        }
     }
 
     public function getProduction(){
-
         if($this->data->getProduction()==1){
             $this->isProduction = true;
         }
