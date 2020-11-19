@@ -21,7 +21,7 @@ This plugin will allow secure online payment on your Magento store, without your
 ```
  - Magento version 2.3.4
  - PHP version v5.6 or greater
- - MySQL version v5.0 or greater
+ - MySQL version v5.6 or greater
  - PHP CURL enabled server/host
 ```
 ### Simple installation
